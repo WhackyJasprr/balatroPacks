@@ -1,0 +1,9 @@
+{
+    "cards":[
+        {
+            "name":"castle",
+            "rarity":"rare",
+            "path":"castle.png"
+        }
+    ]
+}
