@@ -59,8 +59,8 @@
                 document.getElementById("top").src = null;
                 if(smallPath.front)
                 {
-                    document.getElementById("image").src = `Cards/${smallPath.back}`;
-                    document.getElementById("top").src = `Cards/${smallPath.front}`;
+                    document.getElementById("image").src = `Cards/${smallPath.path.back}`;
+                    document.getElementById("top").src = `Cards/${smallPath.path.front}`;
                 }else if(smallPath.path)
                 {
                     if(smallPath.path.change.height)
