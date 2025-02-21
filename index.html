@@ -131,29 +131,31 @@
             imageElement.style.height = height;
             imageElement.style.width = length;
             // Handle different path types
-            if (item.path && typeof item.path === 'object') {
+            if (item.path.path) {
                 // Set back image
-                if(item.path.back)
+            
+                if(item.path.change.height)
                 {
-                    logElement.textContent = 'Front';
-                    imageElement.src = `Cards/${item.path.back}`;
-                    // Show and set front image
-                    topElement.style.display = 'block';
-                    topElement.src = `Cards/${item.path.front}`;
-                
-                }else if (item.path.change)
+                    //{"card":"Square Joker","rare":"Common","path":{"path":"square_joker.png","change":{"height":71}}}
+                    logElement.textContent = 'Square'
+                    imageElement.style.height = item.path.change.height;
+                }else if(item.path.change.scale)
                 {
-                    if(item.path.change.height)
-                    {
-                        //{"card":"Square Joker","rare":"Common","path":{"path":"square_joker.png","change":{"height":71}}}
-                        imageElement.style.height = item.path.change.height;
-                    }else if(item.path.change.scale)
-                    {
-                        //{"card":"Wee Joker","rare":"Rare","path":{"path":"joker.png","change":{"scale":0.8}}}
-                        imageElement.style.scale(item.path.change.scale,item.path.change.scale);
-                    }
-                } 
-            } else {
+                    //{"card":"Wee Joker","rare":"Rare","path":{"path":"joker.png","change":{"scale":0.8}}}
+                    logElement.textContent = 'Wee'
+                    imageElement.style.scale(item.path.change.scale,item.path.change.scale);
+                }
+                imageElement.src = `Cards/${item.path.path}`;
+            } else if (item.path.front)
+            {
+        
+                logElement.textContent = 'Front';
+                imageElement.src = `Cards/${item.path.back}`;
+                // Show and set front image
+                topElement.style.display = 'block';
+                topElement.src = `Cards/${item.path.front}`;
+            
+            }else {
 
                 logElement.textContent = 'Base';
                 imageElement.src = `Cards/${item.path}`;
