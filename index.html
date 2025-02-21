@@ -139,8 +139,9 @@
                 topElement.style.display = 'block';
                 topElement.src = `Cards/${item.path.front}`;
             } else {
+
                 logElement.textContent = 'Base';
-                imageElement.src = `Cards/${item.path || ''}`;
+                imageElement.src = `Cards/${item.path}`;
                 topElement.style.display = 'block';
             }
         }
@@ -151,7 +152,8 @@
                 const rarity = rollRarity();
                 const randomCard = rollCard(rarity);
                 if (randomCard) {
-                    addCard(randomCard);
+                    document.getElementById("log").textContent = JSON.stringify(randomCard);
+                    //addCard(randomCard);
                 } else {
                     alert(`No cards found in ${rarity} rarity`);
                 }
