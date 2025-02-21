@@ -152,8 +152,8 @@
                 const rarity = rollRarity();
                 const randomCard = rollCard(rarity);
                 if (randomCard) {
-                    document.getElementById("log").textContent = JSON.stringify(randomCard);
-                    //addCard(randomCard);
+                    //document.getElementById("log").textContent = JSON.stringify(randomCard);
+                    addCard(randomCard);
                 } else {
                     alert(`No cards found in ${rarity} rarity`);
                 }
