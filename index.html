@@ -121,28 +121,42 @@
             const textElement = document.getElementById("text");
             const imageElement = document.getElementById("image");
             const topElement = document.getElementById("top");
-
+            const length = 71;
+            const height = 95;
             // Reset previous state
             topElement.style.display = 'none';
             
             // Update card name
             textElement.textContent = item.card;
-            
+            imageElement.style.height = height;
+            imageElement.style.width = length;
             // Handle different path types
             if (item.path && typeof item.path === 'object') {
-                logElement.textContent = 'Front';
-                
+                //{"card":"Square Joker","rare":"Common","path":{"path":"square_joker.png","change":{"height":71}}}
                 // Set back image
-                imageElement.src = `Cards/${item.path.back}`;
+                if(item.path.back)
+                {
+                    logElement.textContent = 'Front';
+                    imageElement.src = `Cards/${item.path.back}`;
+                    
+                    // Show and set front image
+                    topElement.style.display = 'block';
+                    topElement.src = `Cards/${item.path.front}`;
                 
-                // Show and set front image
-                topElement.style.display = 'block';
-                topElement.src = `Cards/${item.path.front}`;
+                }else if (item.path.change)
+                {
+                    if(item.path.change.height)
+                    {
+                        imageElement.style.height = length;
+                    }else
+                    {
+                        imageElement.style.scale(0.8,0.8);
+                    }
+                } 
             } else {
 
                 logElement.textContent = 'Base';
                 imageElement.src = `Cards/${item.path}`;
-                topElement.style.display = 'block';
             }
         }
 
