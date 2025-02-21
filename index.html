@@ -132,13 +132,11 @@
             imageElement.style.width = length;
             // Handle different path types
             if (item.path && typeof item.path === 'object') {
-                //{"card":"Square Joker","rare":"Common","path":{"path":"square_joker.png","change":{"height":71}}}
                 // Set back image
                 if(item.path.back)
                 {
                     logElement.textContent = 'Front';
                     imageElement.src = `Cards/${item.path.back}`;
-                    
                     // Show and set front image
                     topElement.style.display = 'block';
                     topElement.src = `Cards/${item.path.front}`;
@@ -147,10 +145,12 @@
                 {
                     if(item.path.change.height)
                     {
-                        imageElement.style.height = length;
-                    }else
+                        //{"card":"Square Joker","rare":"Common","path":{"path":"square_joker.png","change":{"height":71}}}
+                        imageElement.style.height = item.path.change.height;
+                    }else if(item.path.change.scale)
                     {
-                        imageElement.style.scale(0.8,0.8);
+                        //{"card":"Wee Joker","rare":"Rare","path":{"path":"joker.png","change":{"scale":0.8}}}
+                        imageElement.style.scale(item.path.change.scale,item.path.change.scale);
                     }
                 } 
             } else {
