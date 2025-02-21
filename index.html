@@ -8,12 +8,32 @@
 <body>
     <p id="log"></p>
     <p id="text"></p>
-    <img id="image" src="Cards/acrobat.png">
-    <img id="top" src="null" title="back" style="display: none;">
+    <div class="parent">
+        <img class="image1" id="image" title="front" src="Cards/acrobat.png">
+        <img class="image2" id="top" src="null" title="back" style="display: none;">
+    </div>
+    <br><br><br>
+    <p>Card Name</p>
+    <input type="text" id='get'>
+    <button onclick="getCard">Get</button>
     <script>
         let data = [{"card":"8 Ball","rare":"Common","path":"8_ball.png"},{"card":"Abstract Joker","rare":"Common","path":"abstract_joker.png"},{"card":"Acrobat","rare":"Uncommon","path":"acrobat.png"},{"card":"Ancient Joker","rare":"Rare","path":"ancient.png"},{"card":"Arrowhead","rare":"Uncommon","path":"arrowhead.png"},{"card":"Astronomer","rare":"Uncommon","path":"astronomer.png"},{"card":"Banner","rare":"Common","path":"banner.png"},{"card":"Baron","rare":"Rare","path":"baron.png"},{"card":"Baseball Card","rare":"Rare","path":"baseball_card.png"},{"card":"Blackboard","rare":"Uncommon","path":"blackboard.png"},{"card":"Bloodstone","rare":"Uncommon","path":"bloodstone.png"},{"card":"Blue Joker","rare":"Common","path":"blue_joker.png"},{"card":"Blueprint","rare":"Rare","path":"blueprint.png"},{"card":"Bootstraps","rare":"Uncommon","path":"bootstraps.png"},{"card":"Brainstorm","rare":"Rare","path":"brainstorm.png"},{"card":"Bull","rare":"Uncommon","path":"bull.png"},{"card":"Burglar","rare":"Uncommon","path":"burglar.png"},{"card":"Burnt Joker","rare":"Rare","path":"burnt_joker.png"},{"card":"Business Card","rare":"Common","path":"business_card.png"},{"card":"Campfire","rare":"Rare","path":"campfire.png"},{"card":"Canio","rare":"Legendary","path":{"front":"canio_front.png","back":"canio_back.png"}},{"card":"Card Sharp","rare":"Uncommon","path":"card_sharp.png"},{"card":"Cartomancer","rare":"Uncommon","path":"cartomancer.png"},{"card":"Castle","rare":"Uncommon","path":"castle.png"},{"card":"Cavendish","rare":"Common","path":"cavendish.png"},{"card":"Ceremonial Dagger","rare":"Uncommon","path":"ceremonial_dagger.png"},{"card":"Certificate","rare":"Uncommon","path":"certificate.png"},{"card":"Chaos the Clown","rare":"Common","path":"chaos_the_clown.png"},{"card":"Chicot","rare":"Legendary","path":{"front":"chicot_front.png","back":"chicot_back.png"}},{"card":"Clever Joker","rare":"Common","path":"clever_joker.png"},{"card":"Cloud 9","rare":"Uncommon","path":"cloud_9.png"},{"card":"Constellation","rare":"Uncommon","path":"constalation.png"},{"card":"Crafty Joker","rare":"Common","path":"crafty_joker.png"},{"card":"Crazy Joker","rare":"Common","path":"crazy_joker.png"},{"card":"Credit Card","rare":"Common","path":"credit_card.png"},{"card":"Delayed Gratification","rare":"Common","path":"delayed_gratification.png"},{"card":"Devious Joker","rare":"Common","path":"devious_joker.png"},{"card":"Diet Cola","rare":"Uncommon","path":"diet_cola.png"},{"card":"DNA","rare":"Rare","path":"dna.png"},{"card":"Driver's License","rare":"Rare","path":"drivers_license.png"},{"card":"Droll Joker","rare":"Common","path":"droll_joker.png"},{"card":"Drunkard","rare":"Common","path":"drukard.png"},{"card":"Dusk","rare":"Uncommon","path":"dusk.png"},{"card":"Egg","rare":"Common","path":"egg.png"},{"card":"Erosion","rare":"Uncommon","path":"erosion.png"},{"card":"Even Steven","rare":"Common","path":"even_steven.png"},{"card":"Faceless Joker","rare":"Common","path":"faceless_joker.png"},{"card":"Fibonacci","rare":"Uncommon","path":"fibonacci_sequence.png"},{"card":"Flash Card","rare":"Uncommon","path":"flash_card.png"},{"card":"Flower Pot","rare":"Uncommon","path":"flower_pot.png"},{"card":"Fortune Teller","rare":"Common","path":"fortune_teller.png"},{"card":"Four Fingers","rare":"Uncommon","path":"four_fingers.png"},{"card":"Gift Card","rare":"Uncommon","path":"gift_card.png"},{"card":"Glass Joker","rare":"Uncommon","path":"glass_joker.png"},{"card":"Gluttonous Joker","rare":"Common","path":"gluttonous_joker.png"},{"card":"Golden Joker","rare":"Common","path":"golden_joker.png"},{"card":"Golden Ticket","rare":"Common","path":"golden_ticket.png"},{"card":"Greedy Joker","rare":"Common","path":"greedy_joker.png"},{"card":"Green Joker","rare":"Common","path":"green_joker.png"},{"card":"Gros Michel","rare":"Common","path":"gros_michel.png"},{"card":"Hack","rare":"Uncommon","path":"hack.png"},{"card":"Half Joker","rare":"Common","path":"half_joker.png"},{"card":"Hallucination","rare":"Common","path":"hallucination.png"},{"card":"Hanging Chad","rare":"Common","path":"hanging_chad.png"},{"card":"Hiker","rare":"Uncommon","path":"hiker.png"},{"card":"Hit the Road","rare":"Rare","path":"hit_the_road.png"},{"card":"Hologram","rare":"Uncommon","path":{"front":"hologram_front.png","back":"hologram_back.png"}},{"card":"Ice Cream","rare":"Common","path":"ice_cream.png"},{"card":"Invisible Joker","rare":"Rare","path":"invisible_joker.png"},{"card":"Joker","rare":"Common","path":"joker.png"},{"card":"Joker Stencil","rare":"Uncommon","path":"joker_stencil.png"},{"card":"Jolly Joker","rare":"Common","path":"jolly_joker.png"},{"card":"Juggler","rare":"Common","path":"juggler.png"},{"card":"Loyalty Card","rare":"Uncommon","path":"loyalty_card.png"},{"card":"Luchador","rare":"Uncommon","path":"luchador.png"},{"card":"Lucky Cat","rare":"Uncommon","path":"lucky_cat.png"},{"card":"Lusty Joker","rare":"Common","path":"lusty_joker.png"},{"card":"Mad Joker","rare":"Common","path":"mad_joker.png"},{"card":"Madness","rare":"Uncommon","path":"madness.png"},{"card":"Mail-In Rebate","rare":"Common","path":"mail-in_rebate.png"},{"card":"Marble Joker","rare":"Uncommon","path":"marble_joker.png"},{"card":"Matador","rare":"Uncommon","path":"matador.png"},{"card":"Merry Andy","rare":"Uncommon","path":"merry_andy.png"},{"card":"Midas Mask","rare":"Uncommon","path":"midas_mask.png"},{"card":"Mime","rare":"Uncommon","path":"mime.png"},{"card":"Misprint","rare":"Common","path":"missprint.png"},{"card":"Mr. Bones","rare":"Uncommon","path":"mr._bones.png"},{"card":"Mystic Summit","rare":"Common","path":"mystic_summit.png"},{"card":"Obelisk","rare":"Rare","path":"obelisk.png"},{"card":"Odd Todd","rare":"Common","path":"odd_todd.png"},{"card":"Onyx Agate","rare":"Uncommon","path":"onyx_agate.png"},{"card":"Oops! All 6s","rare":"Uncommon","path":"oops_all_6s.png"},{"card":"Pareidolia","rare":"Uncommon","path":"pareidolia.png"},{"card":"Perkeo","rare":"Legendary","path":{"front":"perkeo_front.png","back":"perkeo_back.png"}},{"card":"Photograph","rare":"Common","path":"photograph.png"},{"card":"Popcorn","rare":"Common","path":"popcorn.png"},{"card":"Raised Fist","rare":"Common","path":"raised_fist.png"},{"card":"Ramen","rare":"Uncommon","path":"ramen.png"},{"card":"Red Card","rare":"Common","path":"red_card.png"},{"card":"Reserved Parking","rare":"Common","path":"reserved_parking.png"},{"card":"Ride the Bus","rare":"Common","path":"ride_the_bus.png"},{"card":"Riff-Raff","rare":"Common","path":"riff-raf.png"},{"card":"Rocket","rare":"Uncommon","path":"rocket.png"},{"card":"Rough Gem","rare":"Uncommon","path":"rough_gem.png"},{"card":"Runner","rare":"Common","path":"runner.png"},{"card":"Satellite","rare":"Uncommon","path":"satellite.png"},{"card":"Scary Face","rare":"Common","path":"scarry_face.png"},{"card":"Scholar","rare":"Common","path":"scholar.png"},{"card":"Seance","rare":"Uncommon","path":"seance.png"},{"card":"Seeing Double","rare":"Uncommon","path":"seeing_double.png"},{"card":"Seltzer","rare":"Uncommon","path":"seltzer.png"},{"card":"Shoot the Moon","rare":"Common","path":"shoot_the_moon.png"},{"card":"Shortcut","rare":"Uncommon","path":"shortcut.png"},{"card":"Showman","rare":"Uncommon","path":"showman.png"},{"card":"Sixth Sense","rare":"Uncommon","path":"sixth_sense.png"},{"card":"Sly Joker","rare":"Common","path":"sly_joker.png"},{"card":"Smeared Joker","rare":"Uncommon","path":"smeared_joker.png"},{"card":"Smiley Face","rare":"Common","path":"smiley_face.png"},{"card":"Sock and Buskin","rare":"Uncommon","path":"sock_and_buskin.png"},{"card":"Space Joker","rare":"Uncommon","path":"space_joker.png"},{"card":"Spare Trousers","rare":"Uncommon","path":"spare_trousers.png"},{"card":"Splash","rare":"Common","path":"splash.png"},{"card":"Square Joker","rare":"Common","path":{"path":"square_joker.png","change":{"height":71}}},{"card":"Steel Joker","rare":"Uncommon","path":"steel_joker.png"},{"card":"Stone Joker","rare":"Uncommon","path":"stone_joker.png"},{"card":"Stuntman","rare":"Rare","path":"stuntman.png"},{"card":"Supernova","rare":"Common","path":"supernova.png"},{"card":"Superposition","rare":"Common","path":"superposition.png"},{"card":"Swashbuckler","rare":"Common","path":"swashbuckler.png"},{"card":"The Duo","rare":"Rare","path":"the_duo.png"},{"card":"The Family","rare":"Rare","path":"the_family.png"},{"card":"The Idol","rare":"Uncommon","path":"the_idol.png"},{"card":"The Order","rare":"Rare","path":"the_order.png"},{"card":"The Tribe","rare":"Rare","path":"the_tribe.png"},{"card":"The Trio","rare":"Rare","path":"the_trio.png"},{"card":"Throwback","rare":"Uncommon","path":"throwback.png"},{"card":"To Do List","rare":"Common","path":"to_do_list.png"},{"card":"To the Moon","rare":"Uncommon","path":"to_the_moon.png"},{"card":"Trading Card","rare":"Uncommon","path":"trading_card.png"},{"card":"Triboulet","rare":"Legendary","path":{"front":"triboulet_front.png","back":"triboulet_back.png"}},{"card":"Troubadour","rare":"Uncommon","path":"troubadour.png"},{"card":"Turtle Bean","rare":"Uncommon","path":"turtle_bean.png"},{"card":"Vagabond","rare":"Rare","path":"vagabond.png"},{"card":"Vampire","rare":"Uncommon","path":"vampire.png"},{"card":"Walkie Talkie","rare":"Common","path":"walkie_talkie.png"},{"card":"Wily Joker","rare":"Common","path":"wily_joker.png"},{"card":"Wrathful Joker","rare":"Common","path":"wrathful_joker.png"},{"card":"Yorick","rare":"Legendary","path":{"front":"yorick_front.png","back":"yorick_back.png"}},{"card":"Zany Joker","rare":"Common","path":"zany_joker.png"},{"card":"Wee Joker","rare":"Rare","path":{"path":"joker.png","change":{"scale":0.8}}}]
         const rarities = {"Common": 69.9, "Uncommon": 25, "Rare": 5, "Legendary": 0.1};
         const totals = {"Common": 61, "Uncommon": 64, "Rare": 20, "Legendary": 5};
+
+        function getCard()
+        {
+            let name = document.getElementById('get').innerText;
+            for(let item of data)
+            {
+                let checkName = item.card;
+                if(name == checkName)
+                {
+                    addCard(item);
+                    break;
+                }
+            }
+        }
 
         function randRange(max = 100, min = 0) 
         {
@@ -53,7 +73,13 @@
             {
                 let rarity = rollRarity();
                 let item = rollCard(rarity);
-                document.getElementById("text").innerText = (item.card);
+                addCard(item);
+            }
+        })
+
+        function addCard(item)
+        {
+            document.getElementById("text").innerText = (item.card);
                 let smallPath = item.path;
                 //{"card":"8 Ball","rare":"Common","path":"8_ball.png"}
                 //{"card":"Square Joker","rare":"Common","path":{"path":"square_joker.png","change":{"height":71}}
@@ -84,8 +110,27 @@
                     document.getElementById("log").innerText = 'base';
                     document.getElementById("image").src = `Cards/${smallPath}`;
                 }
-            }
-        })
+        }
+
     </script>
+    <style>
+        .parent {
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+        .image1 {
+            position: relative;
+            top: 0;
+            left: 0;
+            border: 1px red solid;
+        }
+        .image2 {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            border: 1px green solid;
+        }
+    </style>
 </body>
 </html>
