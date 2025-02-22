@@ -178,7 +178,7 @@
         }
 
         window.addEventListener("keydown", (e) => {
-            if (e.keyCode == 32) 
+            if (e.keyCode == 71) 
             {
                 const rarity = rollRarity();
                 const randomCard = rollCard(rarity);
@@ -201,6 +201,7 @@
             let list = document.createElement('li');
             let a = document.createElement('a');
             a.onclick = function() { 
+                document.getElementById("log").textContent = a.textContent;
                 document.getElementById('mySearch').textContent = a.textContent;
             };
             a.textContent = item.card;
