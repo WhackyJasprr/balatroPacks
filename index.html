@@ -89,7 +89,7 @@
         <ul id="myMenu">
 
         </ul>          
-        <button onclick="getCard()">Get Card</button>
+        <button onclick="getCard">Get Card</button>
     </div>
     <!--Main script-->
     <script>
@@ -203,13 +203,11 @@
         {
             //<li><a onclick="">HTML</a></li>
             let list = document.createElement('li');
-            let a = document.createElement('a');
-            a.onclick = function() { 
-                log(a.textContent);
-                document.getElementById('mySearch').textContent = a.textContent;
-            };
-            a.textContent = item.card;
-            list.appendChild(a);
+            list.addEventListener('click', () => {
+                log(list.textContent);
+                document.getElementById('mySearch').textContent = list.textContent;
+            })
+            list.textContent = item.card;
             document.getElementById("myMenu").appendChild(list);
         }
 
