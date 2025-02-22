@@ -200,7 +200,9 @@
             //<li><a onclick="">HTML</a></li>
             let list = document.createElement('li');
             let a = document.createElement('a');
-            a.onclick = function() { addCard(a.textContent); };
+            a.onclick = function() { 
+                document.getElementById('mySearch').textContent = a.textContent;
+            };
             a.textContent = item.card;
             list.appendChild(a);
             document.getElementById("myMenu").appendChild(list);
