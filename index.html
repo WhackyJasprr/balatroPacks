@@ -79,16 +79,11 @@
     </style>
 </head>
 <body>
-    <div id="log"></div>
-    <div id="text"></div>
-    <div class="parent">
-        <img class="image1" id="image" src="Cards/acrobat.png">
-        <img class="image2" id="top" src="" style="display: none;">
-    </div>
+    <div id="log"></div>    
+    <div id="container"></div>
     <div class="controls">
         <input type="text" id='mySearch' placeholder="Enter card name" placeholder="Search.." onkeyup="searchFunction()">
         <ul id="myMenu">
-
         </ul>          
         <button onclick="getCard()">Get Card</button>
     </div>
@@ -104,13 +99,49 @@
         const rarities = {"Common": 69.9, "Uncommon": 25, "Rare": 5, "Legendary": 0.1};
         const totals = {"Common": 61, "Uncommon": 64, "Rare": 20, "Legendary": 5};
 
+        const container = document.getElementById('container');
+
+        const numberCarads = 5;
+        // Create multiple instances
+        for (let i = 0; i < numberCarads; i++) 
+        {
+            container.appendChild(createImageComponent(i));
+        }
+
+        function createImageComponent() 
+        {
+            const parentDiv = document.createElement('div');
+            parentDiv.className = 'parent';
+            parentDiv.id = `parent-${i}`;
+
+            const text = document.createElement('p');
+            text.className = 'text';
+            text.id = `text-${i}`;
+
+            const image1 = document.createElement('img');
+            image1.className = 'image1';
+            image1.id = `image-${i}`;
+            image1.src = '';
+
+            const image2 = document.createElement('img');
+            image2.className = 'image2';
+            image2.id = `top-${i}`;
+            image2.src = '';
+            image2.style.display = 'none';
+
+            parentDiv.appendChild(image1);
+            parentDiv.appendChild(image2);
+
+            return parentDiv;
+        }
+
         function getCard() 
         {
-            log('hi');
+            //log('hi');
             const nameInput = document.getElementById('mySearch');
-            log(nameInput);
+            //log(nameInput);
             const name = nameInput.value.trim();
-            log(name);
+            //log(name);
             if (!name) 
             {
                 alert('Please enter a card name');
@@ -124,7 +155,7 @@
                 return;
             }
 
-            addCard(foundCard);
+            getCardAddCardHandler(foundCard);
             nameInput.value = ''; // Clear input
         }
 
@@ -157,11 +188,36 @@
             return cardsOfRarity[randomIndex];
         }
 
-        function addCard(item) {
+        function addCardHandler()
+        {
+            for (let i = 0; i < numberCarads; i++)
+            {
+                const rarity = rollRarity();
+                const randomCard = rollCard(rarity);
+                let textElement = document.getElementById(`text-${i}`);
+                let imageElement = document.getElementById(`image-${i}`);
+                let topElement = document.getElementById(`top-${i}`);
+                addCard(randomCard,textElement,imageElement,topElement);
+            }
+        }
+
+        function getCardAddCardHandler(foundCard)
+        {
+            for (let i = 0; i < numberCarads; i++)
+            {
+                const rarity = rollRarity();
+                const randomCard = rollCard(rarity);
+                let textElement = document.getElementById(`text-${i}`);
+                let imageElement = document.getElementById(`image-${i}`);
+                let topElement = document.getElementById(`top-${i}`);
+                if(i == 0) addCard(foundCard,textElement,imageElement,topElement);
+                if(i != 0) addCard(randomCard,textElement,imageElement,topElement);
+            }
+        }
+
+        function addCard(item,textElement,imageElement,topElement)
+        {
             const logElement = document.getElementById("log");
-            const textElement = document.getElementById("text");
-            const imageElement = document.getElementById("image");
-            const topElement = document.getElementById("top");
             
             // Reset previous state
             topElement.style.display = 'none';
@@ -187,15 +243,7 @@
         window.addEventListener("keydown", (e) => {
             if (e.keyCode == 71) 
             {
-                const rarity = rollRarity();
-                const randomCard = rollCard(rarity);
-                if (randomCard) 
-                {
-                    addCard(randomCard);
-                } else 
-                {
-                    alert(`No cards found in ${rarity} rarity`);
-                }
+                addCardHandler();
             }else if(e.keyCode == 67)
             {
                 document.getElementById('log').textContent = '';
